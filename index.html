@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Panel - Search & Add Employees (Matchmaking Data)</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js"></script>
+</head>
+<body>
+
+<h1>Admin Panel - Search & Add Employees (Matchmaking Data)</h1>
+
+<div class="container">
+  <h2>Search Employee by Code</h2>
+  <input type="text" id="codeInput" placeholder="Enter Numeric Employee Code" />
+  <button onclick="searchPerson()">Search</button>
+
+  <div class="result" id="resultBox" style="display:none;">
+    <strong>Employee Details:</strong>
+    <p id="personDetails"></p>
+    <div id="feedbackSummary"></div>
+  </div>
+
+  <div class="not-found" id="notFound">No employee found with that code.</div>
+
+  <div id="feedbackSection" style="display:none; margin-top:20px; padding:20px; border:1px solid #ccc; border-radius:6px; background:#f1f2f6;">
+    <h3>Rate & Review this Matchmaker</h3>
+    <label>Rating:</label>
+    <div id="ratingStars" style="margin-bottom:10px;">
+      <span class="star" data-color="green" style="color:green;">&#9733;</span>
+      <span class="star" data-color="blue" style="color:blue;">&#9733;</span>
+      <span class="star" data-color="yellow" style="color:gold;">&#9733;</span>
+      <span class="star" data-color="gray" style="color:gray;">&#9733;</span>
+      <span class="star" data-color="black" style="color:black;">&#9733;</span>
+      <span class="star" data-color="red" style="color:red;">&#9733;</span>
+    </div>
+    <p id="specialNote" style="font-weight:bold; color:#2d3436;"></p>
+
+    <div style="margin-top:15px;">
+      <label>1 - Are you satisfied with this matchmaker?</label><input type="text" id="q1" />
+      <label>2 - Do you want to work with this matchmaker?</label><input type="text" id="q2" />
+      <label>3 - How many marks will you give?</label><input type="number" id="q3" />
+      <label>4 - Enter your complaint and suggestion:</label><input type="text" id="q4" />
+      <label>5 - Description of complaint and suggestion:</label><textarea id="q5"></textarea>
+      <label>6 - Your Name?</label><input type="text" id="q6" />
+      <label>7 - Phone Number</label><input type="text" id="q7" />
+      <label>8 - Address</label><input type="text" id="q8" />
+      <label>9 - Tehsil</label><input type="text" id="q9" />
+      <label>10 - District</label><input type="text" id="q10" />
+      <label>11 - Use your own opinion</label><textarea id="q11"></textarea>
+    </div>
+
+    <button onclick="submitFeedback()">Submit Feedback</button>
+    <div id="feedbackMessage" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<div class="container" style="margin-top:40px;">
+  <h2>Add New Employee</h2>
+  <label for="newName">Name</label><input type="text" id="newName" placeholder="Enter full name" />
+  <label for="newCode">Employee Numeric Code</label><input type="text" id="newCode" placeholder="e.g. 104" />
+  <div class="checkbox-group"><label><input type="checkbox" id="officeOnline" /> Office Online?</label></div>
+  <label for="newAddress">Address</label><input type="text" id="newAddress" placeholder="Enter address" />
+  <label for="newTehsil">Tehsil</label><input type="text" id="newTehsil" placeholder="Enter tehsil" />
+  <label for="newDistrict">District</label><input type="text" id="newDistrict" placeholder="Enter district" />
+  <label for="role">Are you Matchmaker or Client?</label>
+  <select id="role"><option value="matchmaker">Matchmaker</option><option value="client">Client</option></select>
+  <div class="checkbox-group">
+    <label><input type="checkbox" id="knowMatchmaker" /> Do you know this Matchmaker?</label>
+    <label><input type="checkbox" id="workedWithMatchmaker" /> Have you worked with this Matchmaker?</label>
+    <label><input type="checkbox" id="alreadyMatchmaking" /> Are you already matchmaking with this person?</label>
+    <label><input type="checkbox" id="wantMatchmaking" /> Do you want matchmaking with this person?</label>
+  </div>
+  <button onclick="addEmployee()">Add Employee</button>
+  <div class="message" id="addMessage" style="display:none;"></div>
+</div>
+
+</body>
+</html>
